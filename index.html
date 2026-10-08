@@ -1,14 +1,94 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RumahImpianProperty</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-    <p>hallo</p>
-  </body>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Properti</title>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- NAVBAR -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+  <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Left: Logo -->
+    <a href="#" class="flex items-center gap-2 text-xl font-bold tracking-wider text-black">
+      <div class="w-6 h-6 bg-black flex items-center justify-center text-white text-xs font-bold rounded-sm">
+        ■
+      </div>
+      <span>PropertiKita</span>
+    </a>
+
+    <!-- Center Nav Links -->
+    <nav class="hidden md:flex items-center space-x-4 lg:space-x-8 text-sm font-medium text-gray-600">
+      <a href="#" class="text-black font-semibold hover:text-gray-900 transition">Home</a>
+      <a href="#property-list-section" class="hover:text-black transition">Properties</a>
+      <a href="#" class="hover:text-black transition">About Us</a>
+      <a href="#" class="hover:text-black transition">Services</a>
+      <a href="#schedule-section" class="hover:text-black transition">Contact</a>
+    </nav>
+
+    <!-- Right: Action Buttons -->
+    <div class="hidden md:flex items-center space-x-6 text-sm">
+      <a href="#schedule-section" class="hidden lg:flex items-center gap-2 text-gray-700 font-medium hover:text-black transition">
+       <span>📞</span> Book a Call
+      </a>
+      <a href="#" class="bg-black text-white px-4 py-2.5 lg:px-5 lg:py-2.5 rounded-lg font-medium hover:bg-gray-800 transition">
+        Register
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="menu-btn" class="md:hidden text-black focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b px-6 py-4 space-y-3 text-sm font-medium text-gray-700">
+    <a href="#" class="block text-black font-semibold py-1">Home</a>
+    <a href="#property-list-section" class="block hover:text-black py-1">Properties</a>
+    <a href="#" class="block hover:text-black py-1">About Us</a>
+    <a href="#" class="block hover:text-black py-1">Services</a>
+    <a href="#schedule-section" class="block hover:text-black py-1">Contact</a>
+    <hr class="my-2 border-gray-100">
+    <a href="#schedule-section" class="flex items-center gap-2 py-1">📞 Book a Call</a>
+    <a href="#" class="block text-center bg-black text-white py-2 rounded-lg mt-2">Register</a>
+  </div>
+</header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow container mx-auto px-4 py-6 space-y-12">
+
+    <!-- Section Hero (Anggota 2) -->
+    <section id="hero-section"></section>
+
+    <!-- Section Filter & Search (Anggota 4) -->
+    <section id="search-filter-section"></section>
+
+    <!-- Section Property Grid (Anggota 3) -->
+    <section id="property-list-section"></section>
+
+    <!-- Section Kalkulator Cicilan (Anggota 6) -->
+    <section id="calculator-section"></section>
+
+    <!-- Section Form Kunjungan (Anggota 7) -->
+    <section id="schedule-section"></section>
+
+  </main>
+
+  <!-- MODAL DETAIL (Anggota 5) -->
+  <div id="property-modal" class="hidden"></div>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-white py-6 mt-10">
+    <div class="container mx-auto text-center text-sm">
+      <p>&copy; 2026 PropertiKita. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
