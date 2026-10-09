@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-pt-20">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -88,8 +88,11 @@
     <section id="search-filter-section"></section>
 
     <!-- Section Property Grid (Anggota 3) -->
-    <section id="property-list-section"></section>
-
+    <section id="property-list-section" class="scroll-mt-20">
+      <h2 class="text-2xl! font-bold! text-gray-900! py-4!">Properti Tersedia</h2>
+      <div id="property-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"></div>
+    </section>
+      
     <!-- Section Kalkulator Cicilan (Anggota 6) -->
     <section id="calculator-section"></section>
 
@@ -109,5 +112,25 @@
   </footer>
 
   <script type="module" src="/src/main.js"></script>
+
+
+<!-- DETAIL PROPERTI (Sambungan bagian 3) -->
+  <div id="detail-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4">
+  <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-xl relative">
+    <button id="detail-close" class="absolute top-3 right-3 bg-white/90 rounded-full w-8 h-8 text-gray-700 hover:bg-gray-100" aria-label="Tutup">✕</button>
+    <img id="detail-foto" src="" alt="" class="w-full h-56 object-cover rounded-t-2xl">
+    <div class="p-6 space-y-3">
+      <span id="detail-status" class="inline-block text-xs font-semibold px-2 py-1 rounded-full"></span>
+      <h3 id="detail-nama" class="text-xl! font-bold! text-gray-900!"></h3>
+      <p id="detail-lokasi" class="text-gray-600 text-sm"></p>
+      <p id="detail-harga" class="text-lg font-semibold text-gray-900"></p>
+      <dl class="grid grid-cols-2 gap-3 text-sm pt-2 border-t border-gray-100">
+        <div><dt class="text-gray-500">Tipe</dt><dd id="detail-tipe" class="font-medium text-gray-900"></dd></div>
+        <div><dt class="text-gray-500">Kamar</dt><dd id="detail-kamar" class="font-medium text-gray-900"></dd></div>
+      </dl>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
