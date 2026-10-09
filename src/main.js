@@ -168,7 +168,7 @@ const applyFilters = () => {
   hasil = searchByLokasi(hasil, searchInput.value);
 
   renderProperties(hasil);
-  resultCount.textContent = `Menampilkan ${hasil.length} dari ${propertiesData.length} properti`;
+  resultCount.textContent = `${hasil.length} dari ${propertiesData.length} properti`;
 };
 
 searchInput.addEventListener("input", applyFilters);
