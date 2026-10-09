@@ -143,11 +143,46 @@ const renderProperties = (list) => {
   empty.classList.toggle("hidden", list.length > 0);
 };
 
+const searchInput  = document.getElementById("search-lokasi");
+const tipeSelect   = document.getElementById("filter-tipe");
+const statusSelect = document.getElementById("filter-status");
+const resetBtn     = document.getElementById("filter-reset");
+const filterForm   = document.getElementById("filter-form");
+const resultCount  = document.getElementById("result-count");
+
+const filterByTipe = (list, tipe) =>
+  tipe ? list.filter((p) => p.tipe === tipe) : list;
+
+const filterByStatus = (list, status) =>
+  status ? list.filter((p) => p.status === status) : list;
+
+const searchByLokasi = (list, keyword) => {
+  const q = keyword.trim().toLowerCase();
+  return q ? list.filter((p) => p.lokasi.toLowerCase().includes(q)) : list;
+};
+
+const applyFilters = () => {
+  let hasil = propertiesData;
+  hasil = filterByTipe(hasil, tipeSelect.value);
+  hasil = filterByStatus(hasil, statusSelect.value);
+  hasil = searchByLokasi(hasil, searchInput.value);
+
+  renderProperties(hasil);
+  resultCount.textContent = `Menampilkan ${hasil.length} dari ${propertiesData.length} properti`;
+};
+
+searchInput.addEventListener("input", applyFilters);
+tipeSelect.addEventListener("change", applyFilters);
+statusSelect.addEventListener("change", applyFilters);
+filterForm.addEventListener("submit", (e) => e.preventDefault()); // cegah reload saat tekan Enter
+
+resetBtn.addEventListener("click", () => {
+  filterForm.reset();
+  applyFilters();
+});
+
 // Tampilkan semua saat halaman dimuat
-renderProperties(propertiesData);
-
-
-
+applyFilters();
 
 // Toggle Mobile Menu
 document.addEventListener('DOMContentLoaded', () => {

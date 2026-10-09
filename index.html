@@ -63,34 +63,76 @@
   <main class="flex-grow container mx-auto px-4 py-6 space-y-12">
 
     <!-- Section Hero (Anggota 2) -->
-    <section id="hero-section"class="relative w-full h-[70vh] rounded-2xl overflow-hidden mt-4">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" 
-       alt="Rumah Impian" 
-       class="absolute inset-0 w-full h-full object-cover" />
-  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-8">
-    <span class="text-gray-300 text-sm md:text-base font-semibold tracking-widest uppercase mb-3">
+    <section id="hero-section" class="relative w-full min-h-[70vh] flex items-center rounded-2xl overflow-hidden mt-4">
+  <img
+    src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80"
+    alt="Rumah Impian"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 w-full flex flex-col items-center text-center px-6 py-16 md:px-12 md:py-24">
+    <span class="text-gray-300 text-xs sm:text-sm md:text-base font-semibold tracking-widest uppercase mb-3">
       Rumah Impian Property
     </span>
-    <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 max-w-3xl">
-      Temukan Hunian Sempurna <br /> Untuk Masa Depan Anda
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 max-w-3xl">
+      Temukan Hunian Sempurna <br class="hidden sm:block" /> Untuk Masa Depan Anda
     </h1>
-    <p class="text-gray-200 text-base md:text-lg mb-8 max-w-xl">
+    <p class="text-gray-200 text-sm sm:text-base md:text-lg mb-8 max-w-xl">
       Jelajahi koleksi rumah dan apartemen premium kami yang sedang dijual maupun disewakan.
     </p>
-    <a href="#property-list-section" class="bg-white text-black font-semibold py-3 px-8 rounded-lg hover:bg-gray-200 transition duration-300">
+    <a
+      href="#property-list-section"
+      class="w-full max-w-xs sm:w-auto bg-white text-black text-center font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-200 active:scale-95 transition"
+    >
       Mulai Eksplorasi
     </a>
   </div>
-    </section>
+</section>
 
     <!-- Section Filter & Search (Anggota 4) -->
-    <section id="search-filter-section"></section>
+    <section id="search-filter-section" class="bg-white rounded-2xl shadow-md p-4 md:p-6">
+    <form id="filter-form" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
+    <!-- Search lokasi -->
+    <div class="lg:col-span-2">
+      <label for="search-lokasi" class="block text-sm font-medium text-gray-700 mb-1">Cari Lokasi</label>
+      <input
+        id="search-lokasi"
+        type="search"
+        placeholder="Contoh: Jakarta Selatan, Depok, Bali..."
+        class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black"
+      />
+    </div>
+    <!-- Filter tipe -->
+    <div>
+      <label for="filter-tipe" class="block text-sm font-medium text-gray-700 mb-1">Tipe</label>
+      <select id="filter-tipe" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black">
+        <option value="">Semua Tipe</option>
+        <option value="Rumah">Rumah</option>
+        <option value="Apartemen">Apartemen</option>
+      </select>
+    </div>
+    <!-- Filter status -->
+    <div>
+      <label for="filter-status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+      <select id="filter-status" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black">
+        <option value="">Semua Status</option>
+        <option value="Dijual">Dijual</option>
+        <option value="Disewakan">Disewakan</option>
+      </select>
+    </div>
+    <!-- Reset -->
+      <button type="button" id="filter-reset" class="w-full border border-gray-300 text-gray-700 font-medium py-2.5 rounded-lg text-sm hover:bg-gray-100 transition">
+        Reset
+      </button>
+    </form>
+    <p id="result-count" class="mt-4 text-sm text-gray-500"></p>
+  </section>
 
     <!-- Section Property Grid (Anggota 3) -->
     <section id="property-list-section" class="scroll-mt-20">
       <h2 class="text-2xl! font-bold! text-gray-900! py-4!">Properti Tersedia</h2>
       <div id="property-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"></div>
+      <div id="property-empty" class="hidden text-center py-16 text-gray-500">Tidak ada properti yang cocok dengan pencarian Anda.</div>
     </section>
       
     <!-- Section Kalkulator Cicilan (Anggota 6) -->
