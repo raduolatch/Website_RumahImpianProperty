@@ -186,6 +186,41 @@ resetBtn.addEventListener("click", () => {
   applyFilters();
 });
 
+const installmentForm = document.getElementById("installment-form");
+const installmentPrice = document.getElementById("installment-price");
+const installmentMonths = document.getElementById("installment-months");
+const installmentError = document.getElementById("installment-error");
+const installmentResult = document.getElementById("installment-result");
+const installmentAmount = document.getElementById("installment-amount");
+const installmentSummary = document.getElementById("installment-summary");
+
+const formatFullRupiah = (value) =>
+  new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+  }).format(value);
+
+installmentForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const price = Number(installmentPrice.value);
+  const months = Number(installmentMonths.value);
+
+  if (!Number.isFinite(price) || !Number.isFinite(months) || price <= 0 || months <= 0) {
+    installmentError.textContent = "Masukkan harga properti dan jumlah bulan yang lebih dari 0.";
+    installmentError.classList.remove("hidden");
+    installmentResult.classList.add("hidden");
+    return;
+  }
+
+  const monthlyInstallment = price / months;
+  installmentError.classList.add("hidden");
+  installmentAmount.textContent = formatFullRupiah(monthlyInstallment);
+  installmentSummary.textContent = `${formatFullRupiah(price)} dibagi ${months.toLocaleString("id-ID")} bulan.`;
+  installmentResult.classList.remove("hidden");
+});
+
 // Tampilkan semua saat halaman dimuat
 applyFilters();
 

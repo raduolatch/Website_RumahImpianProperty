@@ -161,7 +161,50 @@
     </section>
       
     <!-- Section Kalkulator Cicilan (Anggota 6) -->
-    <section id="calculator-section"></section>
+    <section id="calculator-section" class="scroll-mt-20">
+      <div class="rounded-2xl bg-gray-900 p-6 text-white shadow-lg md:p-8">
+        <div class="max-w-2xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">Rencanakan Hunian</p>
+          <h2 class="mt-2 text-2xl! font-bold! text-white! md:text-3xl!">Simulasi Cicilan Sederhana</h2>
+          <p class="mt-2 text-sm leading-6 text-gray-300">
+            Masukkan harga properti dan jangka waktu untuk melihat estimasi cicilan per bulan.
+            Perhitungan ini belum termasuk bunga, biaya administrasi, dan biaya lainnya.
+          </p>
+        </div>
+
+        <form id="installment-form" class="mt-7 grid gap-5 md:grid-cols-[1fr_1fr_auto] md:items-end" novalidate>
+          <div>
+            <label for="installment-price" class="mb-2 block text-sm font-medium text-gray-200">Harga properti</label>
+            <div class="relative">
+              <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-gray-400">Rp</span>
+              <input id="installment-price" name="price" type="number" min="1" step="1000000" inputmode="numeric"
+                placeholder="Contoh: 750000000" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-11 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            </div>
+          </div>
+          <div>
+            <label for="installment-months" class="mb-2 block text-sm font-medium text-gray-200">Jumlah bulan</label>
+            <div class="relative">
+              <input id="installment-months" name="months" type="number" min="1" step="1" inputmode="numeric"
+                placeholder="Contoh: 120" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 px-4 pr-16 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+              <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-sm text-gray-400">bulan</span>
+            </div>
+          </div>
+          <button type="submit"
+            class="rounded-xl bg-emerald-400 px-6 py-3 text-sm font-bold text-gray-950 transition hover:bg-emerald-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 active:scale-95">
+            Hitung Cicilan
+          </button>
+        </form>
+
+        <p id="installment-error" class="mt-4 hidden text-sm font-medium text-rose-300" role="alert"></p>
+        <div id="installment-result" class="mt-6 hidden rounded-xl border border-gray-700 bg-gray-800/80 p-5" aria-live="polite">
+          <p class="text-sm text-gray-400">Estimasi cicilan per bulan</p>
+          <p id="installment-amount" class="mt-1 text-3xl font-bold text-emerald-300"></p>
+          <p id="installment-summary" class="mt-2 text-xs text-gray-400"></p>
+        </div>
+      </div>
+    </section>
 
     <!-- Section Form Kunjungan (Anggota 7) -->
     <section id="schedule-section"></section>
