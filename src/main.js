@@ -105,7 +105,7 @@ function bukaDetail(id) {
     `Properti ${p.tipe.toLowerCase()} ini berlokasi di ${p.lokasi}, memiliki ${p.kamar} kamar tidur, dan berstatus ${p.status.toLowerCase()}.`;
 
   document.getElementById('detail-deskripsi').textContent = deskripsi;
-  
+
   document.getElementById('detail-foto').src = p.foto;
   document.getElementById('detail-foto').alt = p.nama;
   document.getElementById('detail-nama').textContent = p.nama;
@@ -224,14 +224,75 @@ installmentForm.addEventListener("submit", (event) => {
 // Tampilkan semua saat halaman dimuat
 applyFilters();
 
-// Toggle Mobile Menu
-document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
 
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+const form = document.getElementById("schedule-form");
+
+// Ambil semua input
+const nameInput = document.getElementById("installment-name");
+const emailInput = document.getElementById("installement-email");
+const phoneInput = document.getElementById("installement-no");
+const dateInput = document.getElementById("schedule-date");
+
+// Ambil tempat pesan error
+const nameError = document.getElementById("name-error");
+const emailError = document.getElementById("email-error");
+const phoneError = document.getElementById("phone-error");
+const dateError = document.getElementById("date-error");
+const successMessage = document.getElementById("form-success");
+
+form.addEventListener("submit", function (event) {
+  // Cegah form dikirim sebelum validasi selesai
+  event.preventDefault();
+
+  // Kosongkan pesan dari percobaan sebelumnya
+  nameError.textContent = "";
+  emailError.textContent = "";
+  phoneError.textContent = "";
+  dateError.textContent = "";
+  successMessage.textContent = "";
+
+  let valid = true;
+
+  // 1. Validasi nama
+  if (nameInput.value.trim() === "") {
+    nameError.textContent = "Nama tidak boleh kosong.";
+    valid = false;
+  }
+
+  // 2. Validasi email
+  const email = emailInput.value.trim();
+
+  if (email === "") {
+    emailError.textContent = "Email tidak boleh kosong.";
+    valid = false;
+  } else if (!email.includes("@")) {
+    emailError.textContent = "Email harus mengandung karakter @.";
+    valid = false;
+  }
+
+  // 3. Validasi nomor telepon
+  const phone = phoneInput.value.trim();
+
+  if (phone === "") {
+    phoneError.textContent = "Nomor telepon tidak boleh kosong.";
+    valid = false;
+  } else if (!/^[0-9]+$/.test(phone)) {
+    phoneError.textContent =
+      "Nomor telepon hanya boleh berisi angka.";
+    valid = false;
+  }
+
+  // 4. Validasi tanggal kunjungan
+  if (dateInput.value === "") {
+    dateError.textContent = "Tanggal kunjungan wajib dipilih.";
+    valid = false;
+  }
+
+  // 5. Jika semua input valid
+  if (valid) {
+    successMessage.textContent =
+      "Form berhasil divalidasi! Terima kasih.";
+
+    form.reset();
   }
 });

@@ -25,7 +25,7 @@
       <a href="#property-list-section" class="hover:text-black transition">Properties</a>
       <a href="#" class="hover:text-black transition">About Us</a>
       <a href="#" class="hover:text-black transition">Services</a>
-      <a href="#schedule-section" class="hover:text-black transition">Contact</a>
+      <a href="#contact" class="hover:text-black transition">Contact</a>
     </nav>
 
     <!-- Right: Action Buttons -->
@@ -77,19 +77,19 @@
     </p>
     <a
       href="#property-list-section"
-      class="w-full max-w-xs sm:w-auto bg-white text-black text-center font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-200 active:scale-95 transition">
+      class="w-full max-w-xs sm:w-auto bg-white text-black text-center font-semibold py-3 px-8 mt-6 rounded-lg shadow-lg hover:bg-gray-200 active:scale-95 transition">
       Mulai Eksplorasi
     </a>
     </div>
   </section>
 
     <!-- Section Filter & Search (Anggota 4) -->
-    <section id="search-filter-section" class="bg-white rounded-2xl border border-gray-100 shadow-lg shadow-gray-200/60 p-5 md:p-7">
+    <section id="search-filter-section" class="bg-gray-100 rounded-2xl border border-gray-300 shadow-lg shadow-gray-200/60 p-5 md:p-7">
     <!-- Header kecil -->
     <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
       <div>
-        <h2 class="text-xl font-bold text-gray-900">Cari Properti</h2>
-<p class="text-sm text-gray-500 mt-0.5">Temukan hunian sesuai lokasi, tipe, dan status.</p>
+        <p class="text-xl font-bold text-gray-900">Cari Properti</p>
+        <p class="text-sm text-gray-500">Temukan hunian sesuai lokasi, tipe, dan status.</p>
       </div>
       <span id="result-count" class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full"></span>
     </div>
@@ -192,7 +192,7 @@
             </div>
           </div>
           <button type="submit"
-            class="rounded-xl bg-emerald-400 px-6 py-3 text-sm font-bold text-gray-950 transition hover:bg-emerald-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 active:scale-95">
+            class="rounded-xl bg-emerald-400 px-6 py-3 mt-5 text-sm font-bold text-gray-950 transition hover:bg-emerald-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 active:scale-95">
             Hitung Cicilan
           </button>
         </form>
@@ -207,7 +207,55 @@
     </section>
 
     <!-- Section Form Kunjungan (Anggota 7) -->
-    <section id="schedule-section"></section>
+    <section id="schedule-section">
+      <div class="rounded-2xl bg-gray-900 p-6 text-white shadow-lg md:p-8">
+        <div class="max-w-2xl">
+          <p class="font-bold text-2xl">Form Jadwal Kunjungan</p>
+        </div>
+
+        <form id="schedule-form" class="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5" novalidate>
+        <div>
+          <label for="installment-name" class="font-medium text-gray-200 mb-2 block text-sm">Nama</label>
+            <input id="installment-name" name="name" type="text"
+                placeholder="Masukkan Nama" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-4 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            <small id="name-error" class="mt-1 block text-sm text-red-400"></small>
+        </div>
+        
+        <div>
+          <label for="installement-email" class="font-medium text-gray-20 mb-2 block text-sm">Email</label>
+            <input id="installement-email" name="email" type="text"
+                placeholder="Masukkan Email" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-4 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            <small id="email-error" class="mt-1 block text-sm text-red-400"></small>
+        </div>
+
+        <div>
+          <label for="installement-no" class="font-medium text-gray-20 mb-2 block text-sm">No Telepon</label>
+            <input id="installement-no" name="no" type="text"
+                placeholder="Masukkan No Telepon" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-4 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            <small id="phone-error" class="mt-1 block text-sm text-red-400"></small>
+        </div>
+
+        <div>
+          <label for="schedule-date" class="mb-2 block text-sm font-medium text-white">Waktu Kunjungan</label>
+            <input id="schedule-date" name="date" type="date" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-4 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            <small id="date-error" class="mt-1 block text-sm text-red-400"></small>
+        </div>
+
+        <div>
+          <button type="submit" class="w-full rounded-xl bg-emerald-400 py-3 mt-5 text-gray-950 md:w-auto md:min-w-32 font-bold transition hover:bg-emerald-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 active:scale-95">
+            Kirim
+          </button>
+            <p id="form-success" class="mt-4 text-sm font-medium text-emerald-400"
+            role="status" aria-live="polite"></p>
+        </div>
+
+        </form>
+      </div>
+    </section>
 
   </main>
 
@@ -215,11 +263,26 @@
   <div id="property-modal" class="hidden"></div>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-800 text-white py-6 mt-10">
-    <div class="container mx-auto text-center text-sm">
-      <p>&copy; 2026 PropertiKita. All rights reserved.</p>
+  
+<footer>
+  <section id="contact" class="mt-10 bg-gray-800">
+    <div class="container mx-auto px-4 py-6 text-sm">
+
+      <div class="space-y-2 text-left text-white">
+        <p class="text-2xl font-bold">Contact</p>
+        <p class="text-gray-300">
+          Silakan menghubungi kontak yang ada di bawah ini
+        </p>
+      </div>
+
+      <div class="mt-6 border-t border-gray-700 pt-4 text-center text-gray-300">
+        <p>&copy; 2026 PropertiKita. All rights reserved.</p>
+      </div>
+
     </div>
-  </footer>
+  </section>
+</footer>
+
 
   <script type="module" src="/src/main.js"></script>
 
