@@ -101,6 +101,11 @@ function bukaDetail(id) {
   const p = propertiesData.find(item => item.id === Number(id));
   if (!p) return;
 
+   const deskripsi = p.deskripsi ||
+    `Properti ${p.tipe.toLowerCase()} ini berlokasi di ${p.lokasi}, memiliki ${p.kamar} kamar tidur, dan berstatus ${p.status.toLowerCase()}.`;
+
+  document.getElementById('detail-deskripsi').textContent = deskripsi;
+  
   document.getElementById('detail-foto').src = p.foto;
   document.getElementById('detail-foto').alt = p.nama;
   document.getElementById('detail-nama').textContent = p.nama;
