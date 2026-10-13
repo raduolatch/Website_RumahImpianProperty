@@ -60,7 +60,7 @@
 </header>
 
   <!-- MAIN CONTENT -->
-  <main class="flex-grow container mx-auto px-4 py-6 space-y-12">
+  <main class="grow container mx-auto px-4 py-6 space-y-12">
 
     <!-- Section Hero (Anggota 2) -->
     <section id="hero-section" class="relative w-full min-h-[70vh] flex items-center rounded-2xl overflow-hidden mt-4 bg-gray-900">
@@ -155,7 +155,7 @@
 
     <!-- Section Property Grid (Anggota 3) -->
     <section id="property-list-section" class="scroll-mt-20">
-      <h2 class="text-2xl! font-bold! text-gray-900! py-4!">Properti Tersedia</h2>
+      <h2 class="text-2xl font-bold text-gray-900 py-4">Properti Tersedia</h2>
       <div id="property-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"></div>
       <div id="property-empty" class="hidden text-center py-16 text-gray-500">Tidak ada properti yang cocok dengan pencarian Anda.</div>
     </section>
@@ -348,7 +348,7 @@
 
 
 <!-- DETAIL PROPERTI (Sambungan bagian 3) -->
-  <div id="detail-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-4">
+  <div id="detail-modal" class="hidden fixed inset-0 z-60 items-center justify-center bg-black/50 p-4">
   <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-xl relative">
     <button id="detail-close" class="absolute top-3 right-3 bg-white/90 rounded-full w-8 h-8 text-gray-700 hover:bg-gray-100" aria-label="Tutup">✕</button>
     <img id="detail-foto" src="" alt="" class="w-full h-56 object-cover rounded-t-2xl">

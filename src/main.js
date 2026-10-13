@@ -1,4 +1,4 @@
-import './index.css'
+import './style.css'
 
 // Data Master: Dummy Database Properti (Dibuat oleh Anggota 2)
 const propertiesData = [
