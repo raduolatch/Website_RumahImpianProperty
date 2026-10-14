@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-pt-20">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Properti</title>
+  <script type="module" crossorigin src="/Website_RumahImpianProperty/assets/index-C_9jSs30.js"></script>
+  <link rel="stylesheet" crossorigin href="/Website_RumahImpianProperty/assets/index-DnJ5QWZI.css">
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- NAVBAR -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+  <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Left: Logo -->
+    <a href="#" class="flex items-center gap-2 text-xl font-bold tracking-wider text-black">
+      <div class="w-6 h-6 bg-black flex items-center justify-center text-white text-xs font-bold rounded-sm">
+        ■
+      </div>
+      <span>PropertiKita</span>
+    </a>
+
+    <!-- Center Nav Links -->
+    <nav class="hidden md:flex items-center space-x-4 lg:space-x-8 text-sm font-medium text-gray-600">
+      <a href="#" class="text-black font-semibold hover:text-gray-900 transition">Home</a>
+      <a href="#property-list-section" class="hover:text-black transition">Properties</a>
+      <a href="#" class="hover:text-black transition">About Us</a>
+      <a href="#" class="hover:text-black transition">Services</a>
+      <a href="#contact" class="hover:text-black transition">Contact</a>
+    </nav>
+
+    <!-- Right: Action Buttons -->
+    <div class="hidden md:flex items-center space-x-6 text-sm">
+      <a href="#schedule-section" class="hidden lg:flex items-center gap-2 text-gray-700 font-medium hover:text-black transition">
+       <span>📞</span> Book a Call
+      </a>
+      <a href="#" class="bg-black text-white px-4 py-2.5 lg:px-5 lg:py-2.5 rounded-lg font-medium hover:bg-gray-800 transition">
+        Register
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="menu-btn" class="md:hidden text-black focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b px-6 py-4 space-y-3 text-sm font-medium text-gray-700">
+    <a href="#" class="block text-black font-semibold py-1">Home</a>
+    <a href="#property-list-section" class="block hover:text-black py-1">Properties</a>
+    <a href="#" class="block hover:text-black py-1">About Us</a>
+    <a href="#" class="block hover:text-black py-1">Services</a>
+    <a href="#schedule-section" class="block hover:text-black py-1">Contact</a>
+    <hr class="my-2 border-gray-100">
+    <a href="#schedule-section" class="flex items-center gap-2 py-1">📞 Book a Call</a>
+    <a href="#" class="block text-center bg-black text-white py-2 rounded-lg mt-2">Register</a>
+  </div>
+</header>
+
+  <!-- MAIN CONTENT -->
+  <main class="grow container mx-auto px-4 py-6 space-y-12">
+
+    <!-- Section Hero (Anggota 2) -->
+    <section id="hero-section" class="relative w-full min-h-[70vh] flex items-center rounded-2xl overflow-hidden mt-4 bg-gray-900">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 w-full flex flex-col items-center text-center px-6 py-16 md:px-12 md:py-24">
+    <span class="text-gray-300 text-xs sm:text-sm md:text-base font-semibold tracking-widest uppercase mb-3">
+      Rumah Impian Property
+    </span>
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 max-w-3xl">
+      Temukan Hunian Sempurna <br class="hidden sm:block" /> Untuk Masa Depan Anda
+    </h1>
+    <p class="text-gray-200 text-sm sm:text-base md:text-lg mb-8 max-w-xl">
+      Jelajahi koleksi rumah dan apartemen premium kami yang sedang dijual maupun disewakan
+    </p>
+    <a
+      href="#property-list-section"
+      class="w-full max-w-xs sm:w-auto bg-white text-black text-center font-semibold py-3 px-8 mt-6 rounded-lg shadow-lg hover:bg-gray-200 active:scale-95 transition">
+      Mulai Eksplorasi
+    </a>
+    </div>
+  </section>
+
+    <!-- Section Filter & Search (Anggota 4) -->
+    <section id="search-filter-section" class="bg-gray-100 rounded-2xl border border-gray-300 shadow-lg shadow-gray-200/60 p-5 md:p-7">
+    <!-- Header kecil -->
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+      <div>
+        <p class="text-xl font-bold text-gray-900">Cari Properti</p>
+        <p class="text-sm text-gray-500">Temukan hunian sesuai lokasi, tipe, dan status.</p>
+      </div>
+      <span id="result-count" class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full"></span>
+    </div>
+  <form id="filter-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_auto] gap-4 items-end">
+      <!-- Search lokasi -->
+    <div class="sm:col-span-2 lg:col-span-1">
+      <label for="search-lokasi" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Lokasi</label>
+      <div class="relative">
+        <svg class="w-5 h-5 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+        </svg>
+        <input
+          id="search-lokasi"
+          type="search"
+          placeholder="Jakarta Selatan, Depok, Bali..."
+          class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-11 pr-4 py-3 text-sm text-gray-800 placeholder:text-gray-400 hover:border-gray-300 focus:bg-white focus:outline-none focus:ring-4 focus:ring-gray-900/10 focus:border-gray-900 transition"/>
+      </div>
+    </div>
+    <!-- Filter tipe -->
+    <div>
+      <label for="filter-tipe" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Tipe</label>
+      <div class="relative">
+        <select
+          id="filter-tipe"
+          class="w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm text-gray-800 hover:border-gray-300 focus:bg-white focus:outline-none focus:ring-4 focus:ring-gray-900/10 focus:border-gray-900 transition cursor-pointer">
+          <option value="">Semua Tipe</option>
+          <option value="Rumah">Rumah</option>
+          <option value="Apartemen">Apartemen</option>
+        </select>
+        <svg class="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </div>
+    <!-- Filter status -->
+    <div>
+      <label for="filter-status" class="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">Status</label>
+      <div class="relative">
+        <select
+          id="filter-status"
+          class="w-full appearance-none bg-gray-50 border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm text-gray-800 hover:border-gray-300 focus:bg-white focus:outline-none focus:ring-4 focus:ring-gray-900/10 focus:border-gray-900 transition cursor-pointer">
+          <option value="">Semua Status</option>
+          <option value="Dijual">Dijual</option>
+          <option value="Disewakan">Disewakan</option>
+        </select>
+        <svg class="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </div>
+    <!-- Reset -->
+      <button
+      type="button"
+      id="filter-reset"
+      class="sm:col-span-2 lg:col-span-1 inline-flex items-center justify-center gap-2 bg-gray-900 text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-gray-700 active:scale-95 transition">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M20 20v-5h-5M5.6 15A8 8 0 0018.4 9M18.4 9A8 8 0 005.6 15" />
+      </svg>
+      Reset
+    </button>
+  </form>
+</section>
+
+    <!-- Section Property Grid (Anggota 3) -->
+    <section id="property-list-section" class="scroll-mt-20">
+      <h2 class="text-2xl font-bold text-gray-900 py-4">Properti Tersedia</h2>
+      <div id="property-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6"></div>
+      <div id="property-empty" class="hidden text-center py-16 text-gray-500">Tidak ada properti yang cocok dengan pencarian Anda.</div>
+    </section>
+      
+    <!-- Section Kalkulator Cicilan (Anggota 6) -->
+    <section id="calculator-section" class="scroll-mt-20">
+      <div class="rounded-2xl bg-gray-700 p-6 text-white shadow-lg md:p-8">
+        <div class="max-w-2xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">Rencanakan Hunian</p>
+          <h2 class="mt-2 text-2xl! font-bold! text-white! md:text-3xl!">Simulasi Cicilan Sederhana</h2>
+          <p class="mt-2 text-sm leading-6 text-gray-300">
+            Masukkan harga properti dan jangka waktu untuk melihat estimasi cicilan per bulan.
+            Perhitungan ini belum termasuk bunga, biaya administrasi, dan biaya lainnya.
+          </p>
+        </div>
+
+        <form id="installment-form" class="mt-7 grid gap-5 md:grid-cols-[1fr_1fr_auto] md:items-end" novalidate>
+          <div>
+            <label for="installment-price" class="mb-2 block text-sm font-medium text-gray-200">Harga properti</label>
+            <div class="relative">
+              <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-sm text-gray-400">Rp</span>
+              <input id="installment-price" name="price" type="number" min="1" step="1000000" inputmode="numeric"
+                placeholder="Contoh: 750000000" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-11 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            </div>
+          </div>
+          <div>
+            <label for="installment-months" class="mb-2 block text-sm font-medium text-gray-200">Jumlah bulan</label>
+            <div class="relative">
+              <input id="installment-months" name="months" type="number" min="1" step="1" inputmode="numeric"
+                placeholder="Contoh: 120" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 px-4 pr-16 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+              <span class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-sm text-gray-400">bulan</span>
+            </div>
+          </div>
+          <button type="submit"
+            class="rounded-xl bg-emerald-400 px-6 py-3 mt-5 text-sm font-bold text-gray-950 transition hover:bg-emerald-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 active:scale-95">
+            Hitung Cicilan
+          </button>
+        </form>
+
+        <p id="installment-error" class="mt-4 hidden text-sm font-medium text-rose-300" role="alert"></p>
+        <div id="installment-result" class="mt-6 hidden rounded-xl border border-gray-700 bg-gray-800/80 p-5" aria-live="polite">
+          <p class="text-sm text-gray-400">Estimasi cicilan per bulan</p>
+          <p id="installment-amount" class="mt-1 text-3xl font-bold text-emerald-300"></p>
+          <p id="installment-summary" class="mt-2 text-xs text-gray-400"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Form Kunjungan (Anggota 7) -->
+    <section id="schedule-section">
+      <div class="rounded-2xl bg-gray-700 p-6 text-white shadow-lg md:p-8">
+        <div class="max-w-2xl">
+          <p class="font-bold text-2xl">Form Jadwal Kunjungan</p>
+        </div>
+
+        <form id="schedule-form" class="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5" novalidate>
+        <div>
+          <label for="installment-name" class="font-medium text-gray-200 mb-2 block text-sm">Nama</label>
+            <input id="installment-name" name="name" type="text"
+                placeholder="Masukkan Nama" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-4 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            <small id="name-error" class="mt-1 block text-sm text-red-400"></small>
+        </div>
+        
+        <div>
+          <label for="installement-email" class="font-medium text-gray-20 mb-2 block text-sm">Email</label>
+            <input id="installement-email" name="email" type="text"
+                placeholder="Masukkan Email" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-4 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            <small id="email-error" class="mt-1 block text-sm text-red-400"></small>
+        </div>
+
+        <div>
+          <label for="installement-no" class="font-medium text-gray-20 mb-2 block text-sm">No Telepon</label>
+            <input id="installement-no" name="no" type="text"
+                placeholder="Masukkan No Telepon" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-4 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            <small id="phone-error" class="mt-1 block text-sm text-red-400"></small>
+        </div>
+
+        <div>
+          <label for="schedule-date" class="mb-2 block text-sm font-medium text-white">Waktu Kunjungan</label>
+            <input id="schedule-date" name="date" type="date" required
+                class="w-full rounded-xl border border-gray-700 bg-gray-800 py-3 pl-4 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/20" />
+            <small id="date-error" class="mt-1 block text-sm text-red-400"></small>
+        </div>
+
+        <div>
+          <button type="submit" class="w-full rounded-xl bg-emerald-400 py-3 mt-5 text-gray-950 md:w-auto md:min-w-32 font-bold transition hover:bg-emerald-300 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 active:scale-95">
+            Kirim
+          </button>
+            <p id="form-success" class="mt-4 text-sm font-medium text-emerald-400"
+            role="status" aria-live="polite"></p>
+        </div>
+
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL DETAIL -->
+  <div id="property-modal" class="hidden"></div>
+
+  <!-- FOOTER -->
+  
+<footer>
+  <section id="contact" class="mt-12 pt-3 bg-gray-700">
+    <div class="container  mx-auto px-5 py-4 text-sm">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9">
+        <div>
+          
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 bg-black flex items-center justify-center text-white rounded-lg">
+              <span class="text-xl">■</span>
+            </div>
+              <span class="text-white text-2xl font-bold tracking-wide">
+                PropertiKita
+              </span>
+          </div>
+
+            <p class="text-gray-200 px-1 py-4 leading-6">
+              Temukan hunian impian Anda bersama Rumah Impian Property.
+              Jelajahi pilihan rumah dan apartemen untuk dijual maupun disewakan,
+              dengan informasi properti yang memudahkan Anda menemukan hunian
+              sesuai kebutuhan dan anggaran.
+            </p>
+        </div>
+      
+        <div >
+          <h3 class="font-bold text-white px-4 text-lg mb-4">
+           Tautan
+          </h3>
+
+          <ul class="leading-6">
+            <li>
+              <a href="#search-filter-section" class="text-gray-200 px-4 transition-all duration-300 hover:text-blue-300">Cari Properti</a>
+            </li>
+
+            <li>
+              <a href="#property-list-section" class="text-gray-200 px-4 transition-all duration-300 hover:text-blue-300">Properti</a>
+            </li>
+
+            <li>
+              <a href="#calculator-section" class="text-gray-200 px-4 transition-all duration-300 hover:text-blue-300">Kalkulator Cicilan</a>
+            </li>
+
+            <li>
+              <a href="#schedule-section" class="text-gray-200 px-4 transition-all duration-300 hover:text-blue-300">Form Jadwal Kunjungan</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white px-4 text-lg mb-4">
+           Info & Kontak
+          </h3>
+
+          <ul class="leading-6">
+            <li>
+              <a href="#" class="text-gray-200 px-4 transition-all duration-300 hover:text-blue-300">Email</a>
+            </li>
+
+            <li>
+              <a href="#" class="text-gray-200 px-4 transition-all duration-300 hover:text-blue-300">Instagram</a>
+            </li>
+
+            <li>
+              <a href="#" class="text-gray-200 px-4 transition-all duration-300 hover:text-blue-300">Whatsapp</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+      <div class="mt-6 border-t border-gray-600 pt-4 pb-4 text-center text-gray-300 ">
+        <p class="text-sm">&copy; 2026 PropertiKita. All rights reserved.</p>
+        <p class="text-xs">Dibuat oleh Kelompok 6 PemWeb C CS USU 25</p>
+      </div>
+
+    </div>
+  </section>
+</footer>
+
+
+
+
+<!-- DETAIL PROPERTI (Sambungan bagian 3) -->
+  <div id="detail-modal" class="hidden fixed inset-0 z-60 items-center justify-center bg-black/50 p-4">
+  <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-xl relative">
+    <button id="detail-close" class="absolute top-3 right-3 bg-white/90 rounded-full w-8 h-8 text-gray-700 hover:bg-gray-100" aria-label="Tutup">✕</button>
+    <img id="detail-foto" src="" alt="" class="w-full h-56 object-cover rounded-t-2xl">
+    <div class="p-6 space-y-3">
+      <span id="detail-status" class="inline-block text-xs font-semibold px-2 py-1 rounded-full"></span>
+      <h3 id="detail-nama" class="text-xl! font-bold! text-gray-900!"></h3>
+      <p id="detail-lokasi" class="text-gray-600 text-sm"></p>
+      <p id="detail-deskripsi" class="text-sm leading-6 text-gray-600"></p>
+      <p id="detail-harga" class="text-lg font-semibold text-gray-900"></p>
+      <dl class="grid grid-cols-2 gap-3 text-sm pt-2 border-t border-gray-100">
+        <div><dt class="text-gray-500">Tipe</dt><dd id="detail-tipe" class="font-medium text-gray-900"></dd></div>
+        <div><dt class="text-gray-500">Kamar</dt><dd id="detail-kamar" class="font-medium text-gray-900"></dd></div>
+      </dl>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
